@@ -346,16 +346,17 @@ void mysql::do_flush_users() {
 			}
 		} 
 		catch (const mysqlpp::BadQuery &er) {
-			std::cerr << "Query error: " << er.what() << " in flush users with a qlength: " << user_queue.front().size() << " queue size: " << user_queue.size() << std::endl;
+			std::cout << "Query error: " << er.what() << " in flush users with a qlength: " << user_queue.front().size() << " queue size: " << user_queue.size() << std::endl;
 			sleep(3);
 			continue;
 		} catch (const mysqlpp::Exception &er) {
-			std::cerr << "Query error: " << er.what() << " in flush users with a qlength: " << user_queue.front().size() <<  " queue size: " << user_queue.size() << std::endl;
+			std::cout << "Query error: " << er.what() << " in flush users with a qlength: " << user_queue.front().size() <<  " queue size: " << user_queue.size() << std::endl;
 			sleep(3);
 			continue;
 		}
 	}
 	u_active = false;
+        std::cout << "do_flush_users done." << std::endl;
 }
 
 void mysql::do_flush_torrents() {
@@ -380,16 +381,17 @@ void mysql::do_flush_torrents() {
 			}
 		}
 		catch (const mysqlpp::BadQuery &er) {
-			std::cerr << "Query error: " << er.what() << " in flush torrents with a qlength: " << torrent_queue.front().size() << " queue size: " << torrent_queue.size() << std::endl;
+			std::cout << "Query error: " << er.what() << " in flush torrents with a qlength: " << torrent_queue.front().size() << " queue size: " << torrent_queue.size() << std::endl;
 			sleep(3);
 			continue;
 		} catch (const mysqlpp::Exception &er) {
-			std::cerr << "Query error: " << er.what() << " in flush torrents with a qlength: " << torrent_queue.front().size() << " queue size: " << torrent_queue.size() << std::endl;
+			std::cout << "Query error: " << er.what() << " in flush torrents with a qlength: " << torrent_queue.front().size() << " queue size: " << torrent_queue.size() << std::endl;
 			sleep(3);
 			continue;
 		}
 	}
 	t_active = false;
+        std::cout << "do_flush_torrents done." << std::endl;
 }
 
 void mysql::do_flush_peers() {
@@ -410,16 +412,17 @@ void mysql::do_flush_peers() {
 			}
 		}
 		catch (const mysqlpp::BadQuery &er) {
-			std::cerr << "Query error: " << er.what() << " in flush peers with a qlength: " << peer_queue.front().size() << " queue size: " << peer_queue.size() << std::endl;
+			std::cout << "Query error: " << er.what() << " in flush peers with a qlength: " << peer_queue.front().size() << " queue size: " << peer_queue.size() << std::endl;
 			sleep(3);
 			continue;
 		} catch (const mysqlpp::Exception &er) {
-			std::cerr << "Query error: " << er.what() << " in flush peers with a qlength: " << peer_queue.front().size() << " queue size: " << peer_queue.size() << std::endl;
+			std::cout << "Query error: " << er.what() << " in flush peers with a qlength: " << peer_queue.front().size() << " queue size: " << peer_queue.size() << std::endl;
 			sleep(3);
 			continue;
 		}
 	}
 	p_active = false;
+        std::cout << "do_flush_peers done." << std::endl;
 }
 
 void mysql::do_flush_peer_hist() {
@@ -440,16 +443,17 @@ void mysql::do_flush_peer_hist() {
 			}
 		}
 		catch (const mysqlpp::BadQuery &er) {
-			std::cerr << "Query error: " << er.what() << " in flush peer history with a qlength: " << peer_hist_queue.front().size() << " queue size: " << peer_hist_queue.size() << std::endl;
+			std::cout << "Query error: " << er.what() << " in flush peer history with a qlength: " << peer_hist_queue.front().size() << " queue size: " << peer_hist_queue.size() << std::endl;
 			sleep(3);
 			continue;
 		} catch (const mysqlpp::Exception &er) {
-			std::cerr << "Query error: " << er.what() << " in flush peer history with a qlength: " << peer_hist_queue.front().size() << " queue size: " << peer_hist_queue.size() << std::endl;
+			std::cout << "Query error: " << er.what() << " in flush peer history with a qlength: " << peer_hist_queue.front().size() << " queue size: " << peer_hist_queue.size() << std::endl;
 		sleep(3);
 		continue;
 		}
 	}
 	hist_active = false;
+        std::cout << "do_flush_peer_hist done." << std::endl;
 }
 
 void mysql::do_flush_snatches() {
@@ -470,16 +474,17 @@ void mysql::do_flush_snatches() {
 			}
 		} 
 		catch (const mysqlpp::BadQuery &er) {
-			std::cerr << "Query error: " << er.what() << " in flush snatches with a qlength: " << snatch_queue.front().size() << " queue size: " << snatch_queue.size() << std::endl;
+			std::cout << "Query error: " << er.what() << " in flush snatches with a qlength: " << snatch_queue.front().size() << " queue size: " << snatch_queue.size() << std::endl;
 			sleep(3);
 			continue;
 		} catch (const mysqlpp::Exception &er) {
-			std::cerr << "Query error: " << er.what() << " in flush snatches with a qlength: " << snatch_queue.front().size() << " queue size: " << snatch_queue.size() << std::endl;
+			std::cout << "Query error: " << er.what() << " in flush snatches with a qlength: " << snatch_queue.front().size() << " queue size: " << snatch_queue.size() << std::endl;
 			sleep(3);
 			continue;
 		}
 	}
 	s_active = false;
+        std::cout << "do_flush_snatches done." << std::endl;
 }
 
 void mysql::do_flush_tokens() {
@@ -500,14 +505,15 @@ void mysql::do_flush_tokens() {
 			}
 		}
 		catch (const mysqlpp::BadQuery &er) {
-			std::cerr << "Query error: " << er.what() << " in flush tokens with a qlength: " << token_queue.front().size() << " queue size: " << token_queue.size() << std::endl;
+			std::cout << "Query error: " << er.what() << " in flush tokens with a qlength: " << token_queue.front().size() << " queue size: " << token_queue.size() << std::endl;
 			sleep(3);
 			continue;
 		} catch (const mysqlpp::Exception &er) {
-			std::cerr << "Query error: " << er.what() << " in flush tokens with a qlength: " << token_queue.front().size() << " queue size: " << token_queue.size() << std::endl;
+			std::cout << "Query error: " << er.what() << " in flush tokens with a qlength: " << token_queue.front().size() << " queue size: " << token_queue.size() << std::endl;
 			sleep(3);
 			continue;
 		}
 	}
 	tok_active = false;
+        std::cout << "do_flush_tokens done." << std::endl;
 }
