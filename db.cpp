@@ -19,6 +19,9 @@ mysql::mysql(std::string mysql_db, std::string mysql_host, std::string username,
                 return;
         }
 
+        // Lanz: lets see if enabling automatic reconnection to server will help with the lost data..
+        conn.set_option(new mysqlpp::ReconnectOption(true));
+        
 	db = mysql_db, server = mysql_host, db_user = username, pw = password;
 	u_active = false; t_active = false; p_active = false; s_active = false; tok_active = false; hist_active = false;
 		/*
